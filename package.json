@@ -1,0 +1,25 @@
+{
+  "name": "sale_stock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.1"
+  },
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "locallydb": "0.0.9",
+    "object-assign": "^4.1.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
