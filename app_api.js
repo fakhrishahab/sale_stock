@@ -1,11 +1,15 @@
 var express 	= require('express'),
+	compression 	= require('compression'),
+	bodyParser 	= require('body-parser'),
 	app  		= express(),
-	admin 		= express(),
 	route 		= express.Router(),
 	locallydb 	= require('locallydb'),
 	db 			= new locallydb('./.db') ;
 
 var product = db.collection('product');
+
+var jsonParser = bodyParser.json();
+var urlencodedParser = bodyParser.urlencoded({extended: false})
 
 // product.insert([
 // 	{name: 'Frindha Pointy Glitter Heels', price : 189.000, size: [36, 37, 38, 39], image: './assets/images/product/1.jpg'},
@@ -20,18 +24,16 @@ var product = db.collection('product');
 
 app
 
-.get('/api/product/get_all', function(req, res){
+.get('/api/product/get_all', urlencodedParser, function(req, res){
 	res.json(product.items)
 })
 
 .get('/api/product/get/:id', function(req, res){
-	res.send(product.get(parseInt(req.params.id)))
-	console.log(product.get(0))
+	res.json(product.get(parseInt(req.params.id)))
 })
 
 .delete('/api/product/delete/:id', function(req, res){
 	console.log()
 })
 
-app.use('/adm*n', admin);
 module.exports = app;

@@ -1,4 +1,97 @@
+@import 'grid';
+@import 'variable';
+
 body{
 	padding:0;
 	margin:0;
+	font-family:Verdana;
+}
+
+[class^='col-']{
+	border:1px solid red;
+}
+
+.inline{
+	display:inline-block;
+}
+
+.pull-right{
+	float:right;
+}
+
+.pull-left{
+	float:left;
+}
+
+.container-fluid{
+	width:100%;
+}
+
+.container{
+	width:1200px;
+	box-sizing: border-box; 
+	margin: 0 auto;
+	padding: 0 ; /* THAT'S THE NAME ;) */
+}
+
+header{
+	display:block;
+	height:62px;
+	width:100%;
+	position:absolute;
+	background-color: $white;
+	border-bottom:1px solid $greyLight;
+
+	.comp{
+		height:62px;
+		line-height:62px;
+
+		a{
+			padding:0 15px!important;
+		}
+
+		.comp-btn{
+			display:block;
+		}
+	}
+
+	.header-icon-title{
+		position:relative;
+		box-sizing:border-box;
+	}
+
+	.header-icon-image{
+		position:relative;
+		vertical-align: baseline;
+		height:40px;
+		top:10px;
+		overflow:hidden;
+
+		img{
+			height:40px;
+		}
+	}
+}
+
+.margin-right--little{
+	margin-right: 5px;
+}
+
+.logo-wrapper{
+
+	width:200px;
+	display:block;
+	position:relative;
+
+	img{
+		width:100%;
+	}
+
+}
+
+.user-trigger-wrapper{
+	height:60px;
+	position:relative;
+	line-height:1;
+	display:block;
 }
