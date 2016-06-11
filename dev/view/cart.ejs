@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SALE STOCK</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="Demo project with jQuery">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./assets/style/style.css">
+		<style type="text/css"></style>
+	</head>
+	<body ng-app="saleStockApp">
+		<div class="root-body">
+			<%- include('partials/header')%>
+			
+			<div class="container margin-header">
+				<div class="row"><h2>Your Cart</h2></div>
+				<div class="row">
+					<div class="col-8">
+						<div class="cart-item-container">
+							<span class="ss-delete btn-delete"></span>
+							<div class="cart-item-image">
+								<div class="cart-image-product" style="background:url('./assets/images/products/1.jpg')"></div>
+							</div>
+
+							<div class="cart-item-content-description">
+								<h3 class="">TSHIRT</h3>
+								<div class="cart-item-price">
+									<span class="pull-left">1 pcs</span>	
+									<span class="pull-right item-price">Rp 180.000,-</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="cart-item-container">
+							<span class="ss-delete btn-delete"></span>
+							<div class="cart-item-image">
+								<div class="cart-image-product" style="background:url('./assets/images/products/1.jpg')"></div>
+							</div>
+
+							<div class="cart-item-content-description">
+								<h3 class="">TSHIRT</h3>
+								<div class="cart-item-price">
+									<span class="pull-left">1 pcs</span>	
+									<span class="pull-right item-price">Rp 180.000,-</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="cart-item-container">
+							<span class="ss-delete btn-delete"></span>
+							<div class="cart-item-image">
+								<div class="cart-image-product" style="background:url('./assets/images/products/1.jpg')"></div>
+							</div>
+
+							<div class="cart-item-content-description">
+								<h3 class="">TSHIRT</h3>
+								<div class="cart-item-price">
+									<span class="pull-left">1 pcs</span>	
+									<span class="pull-right item-price">Rp 180.000,-</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="cart-item-footer pull-left">
+							<span class="pull-left"><h2>Total</h2></span>
+							<span class="pull-right"><h2>Rp 300.000,-</h2></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src="./lib/angular.min.js"></script>
+	<script src="./lib/jquery.min.js"></script>
+	<script src="./script/app.js"></script>
+	<script src="./script/service/service.js"></script>
+	<script src="./script/directive/headerDirective.js"></script>
+	<script type="text/javascript"></script>
+</html>

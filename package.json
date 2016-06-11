@@ -18,6 +18,8 @@
     "async": "^2.0.0-rc.6",
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "crypto": "0.0.3",
     "ejs": "^2.4.2",
     "express": "^4.13.4",
     "express-minify": "^0.2.0",
@@ -28,6 +30,8 @@
     "gulp-util": "^3.0.7",
     "locallydb": "0.0.9",
     "object-assign": "^4.1.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "request": "^2.72.0"

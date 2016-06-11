@@ -4,10 +4,39 @@
     display: block;
 }
 
+.row-table{
+	display:table;
+	table-layout:fixed;
+}
+
+.full-height{
+	height:100%;
+}
+
+.col-middle{
+	vertical-align: middle;
+}
+
+.col-top, .col-middle, .col-bottom{
+	float:none!important;
+	display:table-cell;
+}
+
 [class*="col-"] {
     float: left;
 	box-sizing:border-box;
     // padding: 15px;
+}
+
+.container-fluid{
+	width:100%;
+}
+
+.container{
+	width:1200px;
+	box-sizing: border-box; 
+	margin: 0 auto;
+	padding: 0 ; /* THAT'S THE NAME ;) */
 }
 
 
@@ -48,7 +77,38 @@
 .col-11 {width: 91.667%;}
 .col-12 {width: 100%;}
 
-@media (max-width: 540px) {
+@media (max-width: 1200px) {
+
+	.container{
+		width:100%;
+	}
+
+	.col-lg-1 { width: 5.5%; }
+	.col-lg-2 { width: 16.667%; }
+	.col-lg-3 { width: 24.64%; }
+	.col-lg-4 { width: 33.332%; }
+	.col-lg-5 { width: 41.667%; }
+	.col-lg-6 { width: 50%; }
+	.col-lg-7 { width: 58.33%; }
+	.col-lg-8 { width: 66.667%; }
+	.col-lg-9 { width: 74.99%; }
+	.col-lg-10 { width: 83.33%; }
+	.col-lg-11 { width: 91.667%; }
+	.col-lg-12 { width: 100%; margin: 0; }
+
+	.col-lg-offset-1{margin-left:5.5%;}
+	.col-lg-offset-2{margin-left:16.667%;}
+	.col-lg-offset-3{margin-left:24.64%;}
+	.col-lg-offset-4{margin-left:33.332%;}
+	.col-lg-offset-5{margin-left:41.667%;}
+	.col-lg-offset-6{margin-left:50%;}
+	.col-lg-offset-7{margin-left:58.33%;}
+	.col-lg-offset-8{margin-left:66.667%;}
+	.col-lg-offset-9{margin-left:74.99%;}
+	.col-lg-offset-10{margin-left:83.33%;}
+}
+
+@media (max-width: 640px) {
 
 	[class^='col-md']{
 		padding-right:0;
@@ -81,7 +141,7 @@
 	.col-md-no-offset{margin-left:0;}
 }
 
-@media (max-width: 350px) {
+@media (max-width: 450px) {
 	[class^='col-sm']{
 		padding-right:0;
 	}

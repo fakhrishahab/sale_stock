@@ -1,0 +1,61 @@
+.elm-input{
+	position:relative;
+	border-collapse: collapse;
+	width:100%;
+
+	label{
+		float:left;
+		margin-bottom: 10px;
+	}
+
+
+	.input{
+		display:table;
+		width:100%;
+		border-radius: 5px;
+		border:1px solid $greyDark;
+		position:relative;
+		transition: all ease 0.2s;
+
+		&.focus{
+			border:1px solid $blueGreen!important;
+			transition: all ease 0.2s;
+		}
+
+		span{
+			width:1%;
+			display:table-cell;
+			line-height:0.7;
+			max-width: 50px;
+			white-space: nowrap;
+			overflow:hidden;
+			vertical-align: middle;
+			padding:5px;
+			position:relative;
+			box-sizing:border-box;
+			font-size:2.5em;
+			top:3px;
+			color:$greyDark;
+			transition: all ease 0.2s;
+
+			&.focus{
+				color:$blueGreen!important;
+				transition: all ease 0.2s;
+			}
+		}
+
+		input{
+			width:100%;
+			color:$greyDark;
+			height:60px;
+			position:relative;
+			display:table-cell;
+			border:none;
+			background:transparent;
+			vertical-align: middle;
+			box-sizing:border-box;
+			padding:5px;
+			font-size:15px;
+		}
+	}
+}

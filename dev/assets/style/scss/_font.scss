@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "sale-stock";
+  src:url("../../fonts/sale-stock.eot");
+  src:url("../../fonts/sale-stock.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/sale-stock.woff") format("woff"),
+    url("../../fonts/sale-stock.ttf") format("truetype"),
+    url("../../fonts/sale-stock.svg#sale-stock") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "sale-stock" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ss-"]:before,
+[class*=" ss-"]:before {
+  font-family: "sale-stock" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ss-power:before {
+  content: "\61";
+}
+.ss-delete:before {
+  content: "\62";
+}
+.ss-search:before {
+  content: "\63";
+}
+.ss-tag:before {
+  content: "\64";
+}
+.ss-tag-list:before {
+  content: "\65";
+}
+.ss-menu-horizotal:before {
+  content: "\66";
+}
+.ss-locked:before {
+  content: "\67";
+}
+.ss-setting:before {
+  content: "\68";
+}
+.ss-email:before {
+  content: "\69";
+}
+.ss-close:before {
+  content: "\6a";
+}
+.ss-cart:before {
+  content: "\6b";
+}
+.ss-email1:before {
+  content: "\6c";
+}
+.ss-right:before {
+  content: "\6d";
+}
+.ss-left:before {
+  content: "\6e";
+}
+.ss-down:before {
+  content: "\6f";
+}
+.ss-top:before {
+  content: "\70";
+}
+.ss-heart:before {
+  content: "\71";
+}
+.ss-menu-vertical:before {
+  content: "\72";
+}

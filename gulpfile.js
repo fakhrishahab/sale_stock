@@ -38,15 +38,26 @@ gulp.task('images', function(){
 		.pipe(gulp.dest('dist/assets/images'))
 })
 
+gulp.task('lib', function(){
+	gulp.src('dev/lib/**/*.*')
+		.pipe(gulp.dest('dist/lib'))
+})
+
+gulp.task('fonts', function(){
+	gulp.src('dev/assets/fonts/**/*.*')
+		.pipe(gulp.dest('dist/assets/fonts'))
+})
+
 gulp.task('create_server', function(){
 	createServer;
 })
 
-gulp.task('default', ['create_server', 'sass', 'html', 'script', 'images', 'watch']);
+gulp.task('default', ['create_server', 'sass', 'html', 'script', 'images', 'lib', 'fonts', 'watch']);
 
 gulp.task('watch', function(){
 	gulp.watch('dev/assets/style/**/*.*', ['sass'])
 	gulp.watch('dev/script/**/*.*', ['script'])
 	gulp.watch('dev/view/**/*.ejs', ['html'])
+	gulp.watch('dev/lib/**/*.*', ['lib'])
 })
 

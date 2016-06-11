@@ -1,0 +1,160 @@
+<header class="">
+	<div class="container">
+		<div class="comp logo-wrapper inline pull-left">
+			<a href="./"><img src="../assets/images/logo-sale.png"/></a>
+		</div>
+
+		<div class="comp pull-right user-trigger-wrapper">
+			<% if(logon){%>
+			<a class="comp-btn">
+				<span class="pull-left header-icon-title margin-right--little"><%= JSON.parse(logon).username%></span>
+				<div class="inline header-icon-image">
+					<img src="../assets/images/user-img.png"/>
+				</div>
+			</a>
+			<%}%>
+
+			<div class="user-trigger-target">
+				<ul>
+					<li>
+						<a href="">
+							<div class="ss-heart inline"></div>
+							<div class="inline title">Your Favourite</div>
+						</a>
+					</li>
+					<li>
+						<a href="./cart">
+							<div class="ss-cart inline"></div>
+							<div class="inline title">Your Cart</div>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<div class="ss-setting inline"></div>
+							<div class="inline title">Setting</div>
+						</a>
+					</li>
+					<li>
+						<a href="./logout">
+							<div class="ss-power inline"></div>
+							<div class="inline title">Logout</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<% if(!logon){%>
+		<div class="comp pull-right">
+			<a class="comp-btn">
+				<span target="#login-form" class="header-icon-title btn btn-login" btn-login >Login</span>
+			</a>
+		</div>
+
+		<div class="comp pull-right margin-right--little">
+			<a class="comp-btn">
+				<span target="#register-form" class="header-icon-title btn btn-login" btn-login>Register</span>
+			</a>
+		</div>
+		<%}%>
+
+	</div>
+</header>
+
+<section>
+	<div class="container-fluid float-form-header login-form">
+		<div class="row full-height" id="login-form">
+			<span class="ss-close pull-right btn-close-form" close-form></span>
+			<div class="col-12 text-center">
+				<div class="login-form-wrapper img-center">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="elm-input">
+								<!-- <label for="username">Username</label> -->
+								<div class="input margin-bottom--little">
+									<span class="ss-email inline"></span>
+									<input type="text" placeholder="Username" ng-model="login_username" elm-focus/>
+								</div>
+
+								<div class="input margin-bottom--little">
+									<span class="ss-locked inline"></span>
+									<input type="password" placeholder="Password" ng-model="login_password" elm-focus />
+								</div>
+
+								<div class="row ">
+									<label for="checkbox pull-left">
+										<input type="checkbox" ng-model="login_remember">Remember Me
+									</label>
+									<a href="" class="pull-right btn-register">Forgot password</a>
+								</div>
+
+								<div class="row margin-bottom--little">
+									<button class="btn btn-large block full-width login-btn-large" btn-do-login>Login</button>	
+								</div>
+
+								<hr class="margin-bottom--little">
+								
+								<div class="row push-top--little">
+									<label for="account">Do you have an account ?</label>
+									<a href="" class="comp-btn pull-right">
+										<span class="btn btn-login btn-register padding-little">Register</span>
+									</a>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row full-height" id="register-form">
+			<span class="ss-close pull-right btn-close-form" close-form></span>
+			<div class="col-12 text-center">
+				<div class="login-form-wrapper img-center width__600">
+					<h2>Register</h2>
+					<div class="row">
+						<div class="col-6">
+							<div class="elm-input">
+								<!-- <label for="username">Username</label> -->
+								<div class="input margin-bottom--little">
+									<span class="ss-email inline"></span>
+									<input type="text" placeholder="Username" ng-model="register_username" elm-focus/>
+								</div>
+
+								<div class="input margin-bottom--little">
+									<span class="ss-locked inline"></span>
+									<input type="password" placeholder="Password" ng-model="register_password" elm-focus />
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="col-6">
+							<div class="elm-input">
+								<div class="input margin-bottom--little">
+									<span class="ss-email inline"></span>
+									<input type="text" placeholder="Email" ng-model="register_email" elm-focus/>
+								</div>
+
+								<div class="input margin-bottom--little">
+									<span class="ss-locked inline"></span>
+									<input type="password" placeholder="Re-type Password" ng-modal="register_repassword" elm-focus />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12">
+							<div class="row margin-bottom--little">
+								<button class="btn btn-large block full-width login-btn-large" btn-register>Register</button>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
