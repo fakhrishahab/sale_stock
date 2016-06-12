@@ -17,16 +17,18 @@ function hash(password){
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 
-// product.insert([
-// 	{name: 'Frindha Pointy Glitter Heels', price : 189000, size: [36, 37, 38, 39], image: './assets/images/products/1.jpg'},
-// 	{name: 'Velicia Stripes Bodycon Midi Dress', price : 89000, size: ['S'], image: './assets/images/products/2.jpg'},
-// 	{name: 'Ferrona Plain Sporty Backpack', price : 159000, size: [], image: './assets/images/products/3.jpg'},
-// 	{name: 'Zerszina Plain Tunic Blouse', price : 109000, size: ['L'], image: './assets/images/products/4.jpg'},
-// 	{name: 'Louisfoxel Leather High Boots', price : 199000, size: [36, 37, 38, 39], image: './assets/images/products/5.jpg'},
-// 	{name: 'Fristiania Text Longsleeve Sweater', price : 109000, size: ['XL'], image: './assets/images/products/6.jpg'},
-// 	{name: 'Rhistyza Polkadot Sleeveless Shirt', price : 83000, size: ['L'], image: './assets/images/products/7.jpg'},
-// 	{name: 'Delvea Plain Pleated Midi Dress', price : 89000, size: ['L'], image: './assets/images/products/8.jpg'},
-// ])
+if(product.items.length < 1){
+	product.insert([
+		{name: 'Frindha Pointy Glitter Heels', price : 189000, size: [36, 37, 38, 39], image: './assets/images/products/1.jpg'},
+		{name: 'Velicia Stripes Bodycon Midi Dress', price : 89000, size: ['S'], image: './assets/images/products/2.jpg'},
+		{name: 'Ferrona Plain Sporty Backpack', price : 159000, size: [], image: './assets/images/products/3.jpg'},
+		{name: 'Zerszina Plain Tunic Blouse', price : 109000, size: ['L'], image: './assets/images/products/4.jpg'},
+		{name: 'Louisfoxel Leather High Boots', price : 199000, size: [36, 37, 38, 39], image: './assets/images/products/5.jpg'},
+		{name: 'Fristiania Text Longsleeve Sweater', price : 109000, size: ['XL'], image: './assets/images/products/6.jpg'},
+		{name: 'Rhistyza Polkadot Sleeveless Shirt', price : 83000, size: ['L'], image: './assets/images/products/7.jpg'},
+		{name: 'Delvea Plain Pleated Midi Dress', price : 89000, size: ['L'], image: './assets/images/products/8.jpg'},
+	])
+}
 
 app
 

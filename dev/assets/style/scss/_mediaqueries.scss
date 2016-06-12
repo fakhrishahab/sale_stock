@@ -1,0 +1,10 @@
+@media (max-width: 640px) {
+	.login-form-wrapper{
+		padding:10px 10px 10px 10px;
+		box-sizing:border-box;
+
+		&.width__600{
+			width:100%;
+		}
+	}
+}
