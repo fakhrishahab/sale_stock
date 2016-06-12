@@ -26,11 +26,13 @@ describe('end to end homepage test', function(){
 		browser.waitForAngular();
 
      	browser.actions().mouseMove(element(by.css('.user-trigger-wrapper'))).perform();
-		element(by.id('btnLogout')).click();
+		element(by.id('btnLogout')).click().then(function(){
 		browser.waitForAngular();
 
+			element(by.css('.showLogin')).click();
+		});
+
 		var user_login = 'Whatever';
-		element(by.css('.showLogin')).click();
 		element(by.model('login_username')).sendKeys(user_login);
 		element(by.model('login_password')).sendKeys('12345');
 		element(by.css('.doLogin')).click();
@@ -39,9 +41,7 @@ describe('end to end homepage test', function(){
 
 	it("Should add cookies when klik button BUY", function(){
 		browser.waitForAngular();
-		element.all(by.id('btnBuy')).each(function(btn){
-			btn.click();;	
-		});
+		element(by.css('.btnBuy')).click();
 		browser.manage().getCookie('SS_CART_TMP')
                 .then(function (cookie) {
                 	expect(cookie).not.toBe(null);
