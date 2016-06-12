@@ -39,7 +39,9 @@ describe('end to end homepage test', function(){
 
 	it("Should add cookies when klik button BUY", function(){
 		browser.waitForAngular();
-		element(by.id('btnBuy')).click();
+		element.all(by.id('btnBuy')).each(function(btn){
+			btn.click();;	
+		});
 		browser.manage().getCookie('SS_CART_TMP')
                 .then(function (cookie) {
                 	expect(cookie).not.toBe(null);
