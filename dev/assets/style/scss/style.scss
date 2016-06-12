@@ -2,7 +2,9 @@
 @import 'variable';
 @import 'font';
 @import 'element';
-
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 body{
 	padding:0;
 	margin:0;
@@ -108,7 +110,7 @@ label{
 
 header{
 	display:block;
-	z-index:3;
+	z-index:5;
 	top:0;
 	height:62px;
 	width:100%;
@@ -126,6 +128,11 @@ header{
 
 		.comp-btn{
 			display:block;
+
+			[class^='ss-']{
+				font-size:2em;
+				line-height:64px;
+			}
 		}
 	}
 
@@ -149,7 +156,7 @@ header{
 
 .float-form-header{
 	position:absolute;
-	z-index:2;
+	z-index:4;
 	background:white;
 	display:block;
 	top:-600px;
@@ -465,6 +472,7 @@ header{
 		padding:5px;
 		line-height:10px;
 		cursor:pointer;
+		z-index: 3;
 	}
 
 	&:hover{

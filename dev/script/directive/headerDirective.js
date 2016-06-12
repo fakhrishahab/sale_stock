@@ -1,4 +1,4 @@
-'use strict';
+;'use strict';
 
 app
 .directive('btnLogin', function(){
@@ -9,6 +9,7 @@ app
 		// priority: 1,
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
+		scope : '=',
 		// controller: function($scope, $element, $attrs, $transclude) {},
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
@@ -21,24 +22,35 @@ app
 			// $scope.formLogin = function(elm){
 			// 	console.log(elm)
 			// }
+			$scope.triggerLogin = function(test){
+				document.querySelector('.float-form-header').classList.add("slideDown")	;
+				$('.float-form-header').animate({
+					height: $('#login-form').height()
+				}, 400);
+				$('.float-form-header').animate({
+		 			scrollTop : $('#login-form').offset().top + 62
+		 		}, 400, function(){
+
+		 		});
+			};
 
 			var active;
-			console.log(active, iAttrs.target)
+
 			elm.bind('click',function(){
 				$('.float-form-header').animate({
 					height: $(iAttrs.target).height()
-				}, 400)
+				}, 400);
 				var formOpened = document.querySelector('.float-form-header').classList.contains('slideDown');
 				if(formOpened == false){
-				 	document.querySelector('.float-form-header').classList.add("slideDown")	
-					window.location.href = iAttrs.target
+				 	document.querySelector('.float-form-header').classList.add("slideDown")	;
+					window.location.href = iAttrs.target;
 				}else{
 					// if(active == iAttrs.target){
 					// 	var classClose = document.querySelector('.float-form-header').className.replace(/\bslideDown\b/ , '')
 					// 	document.querySelector('.float-form-header').className = classClose;
 					// }else{
 						if(iAttrs.target !== ''){
-							console.log($(hash).height())
+							// console.log($(hash).height())
 							active = iAttrs.target;
 					 		var hash = iAttrs.target;
 					 		$('.float-form-header').animate({
@@ -46,13 +58,13 @@ app
 					 			height: $(hash).height()
 					 		}, 400, function(){
 
-					 		})
-					 	}
+					 		});
+					 	};
 					// }
-			    }
+			    };
 			 
 			 	
-			})
+			});
 		}
 	};
 })
@@ -62,11 +74,11 @@ app
 		restrict: 'A',
 		link: function($scope, elm, attr, controller){
 			elm.bind('click', function(){
-				var classClose = document.querySelector('.float-form-header').className.replace(/\bslideDown\b/ , '')
+				var classClose = document.querySelector('.float-form-header').className.replace(/\bslideDown\b/ , '');
 				document.querySelector('.float-form-header').className = classClose;
-			})
+			});
 		}
-	}
+	};
 })
 
 .directive('elmFocus', function(){
@@ -83,13 +95,13 @@ app
 			});
 
 			elm.bind('blur', function(){
-				var noFocus = this.parentElement.className.replace(/\bfocus\b/, '')
-				var noFocusIcon = this.previousSibling.previousSibling.className.replace(/\bfocus\b/, '')
+				var noFocus = this.parentElement.className.replace(/\bfocus\b/, '');
+				var noFocusIcon = this.previousSibling.previousSibling.className.replace(/\bfocus\b/, '');
 				parent.className = noFocus;
 				icon.className = noFocusIcon;
-			})
+			});
 		}
-	}
+	};
 })
 
 .directive('btnRegister', function(service){
@@ -101,20 +113,20 @@ app
 					username : $scope.register_username,
 					email : $scope.register_email,
 					password : $scope.register_password
-				}
+				};
 
 				service.addUser(data)
 					.success(function(res){
-						console.log(res)
+						document.location.reload(true);
 					})
 					.error(function() {
-						console.log('error')
-					});
+						console.log('error');
+					})
 
 				// console.log($scope.register_username)
-			})
+			});
 		}
-	}
+	};
 })
 
 .directive('btnDoLogin', function(service){
@@ -125,17 +137,18 @@ app
 				var data = {
 					username : $scope.login_username,
 					password : $scope.login_password
-				}
+				};
 
 				service.userLogin(data)
 					.success(function(result){
-						console.log(result)
-						window.location.href="./"
+						console.log(result);
+						// window.location.href="./"
+						document.location.reload(true);
 					})
 					.error(function(){
-						console.log('error')
+						console.log('error');
 					})
-			})
+			});
 		}
-	}
+	};
 })

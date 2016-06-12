@@ -31,34 +31,25 @@ route
 	});
 })
 
-.get('/register', function(req, res, next){
-	async.parallel([
-		InitRequest.insertUser
-	], function(err, result){
-		res.render('index', {
-			product : products,
-			pick_product : pick_products,
-			logon : JSON.stringify(req.cookies.SS_USER_SESSION)
-		})
-	})
-})
-
-.get('/cart', middleware.checkAuth, function(req, res, next){
+.get('/cart', function(req, res, next){
 	res.render('index', {
 		controller: 'cartController as cc',
 		template: 'partials/cart_content',
 		script : [
-			'./script/directive/cartDirective.js',
 			'./script/controller/cartController.js'
 		],
-		product : products,
+		product : products || [],
 		pick_product : pick_products,
-		logon : JSON.stringify(req.cookies.SS_USER_SESSION)
+		logon : req.cookies.SS_USER_SESSION
 	})
 })
 
 .get('/logout', middleware.checkAuth, function(req, res, next){
 	res.cookie('SS_USER_SESSION', '', {expires : new Date(Date.now())});
+	res.redirect('./');
+})
+
+.get('/checkout', middleware.checkAuth, function(req, res, next){
 	res.redirect('./');
 })
 

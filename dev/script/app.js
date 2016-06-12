@@ -1,5 +1,5 @@
-'use strict';
+;'use strict';
 
 // (function(){
-	var app = angular.module('saleStockApp', ['ngCookies'])
+	var app = angular.module('saleStockApp', ['ngCookies']);
 // })()

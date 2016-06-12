@@ -1,7 +1,4 @@
 var express 	= require('express'),
-	compression 	= require('compression'),
-	passport 	= require('passport'),
-	LocalStrategy = require('passport-local'),
 	bodyParser 	= require('body-parser'),
 	app  		= express(),
 	route 		= express.Router(),
@@ -48,18 +45,16 @@ app
 .post('/api/users/add', function(req, res){
 	var user = users.where({username: req.body.username}).items[0];
 	
-	if(!user){
-		var user = {
-			username : req.body.username,
-			email : req.body.email,
-			password : hash(req.body.password)
-		}
-
-		users.insert(user)
-		res.json(user)
-	}else{
-		res.status(500).json({status: 500, message: 'Email has already exist'})
+	var user = {
+		username : req.body.username,
+		email : req.body.email,
+		password : hash(req.body.password)
 	}
+
+	users.insert(user)
+	res.cookie('SS_USER_SESSION', JSON.stringify(user), { expire : new Date() + 9999 })
+	res.json(user)
+
 	
 })
 
@@ -78,10 +73,19 @@ app
 .post('/api/cart/save', function(req, res){
 	var products = product.where({cid: parseInt(req.body.product_id)}).items[0];
 	products.user_id = parseInt(req.body.user_id);
-	// console.log(products)
-	// console.log(cart.insert(products))
-	if(cart.insert(products)){
+	products.product_id = parseInt(req.body.product_id);
+
+
+	if(cart.insert(products) > -1 ){
 		res.json(products)
+	}else{
+		res.status(500).json({status: 500, message: 'Error save to cart'})
+	}
+})
+
+.post('/api/cart/insert', function(req, res){
+	if(cart.insert(req.body.data_cart) > -1){
+		res.json(req.body.data_cart)
 	}else{
 		res.status(500).json({status: 500, message: 'Error save to cart'})
 	}
@@ -98,7 +102,7 @@ app
 })
 
 .delete('/api/cart/delete/:id', function(req, res){
-	var remove = cart.remove(parseInt(req.params.id))
+	var remove = cart.remove(req.params.id)
 
 	if(remove == 1){
 		res.json(200)

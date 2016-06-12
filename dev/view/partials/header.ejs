@@ -7,7 +7,7 @@
 		<div class="comp pull-right user-trigger-wrapper">
 			<% if(logon){%>
 			<a class="comp-btn">
-				<span class="pull-left header-icon-title margin-right--little"><%= JSON.parse(logon).username%></span>
+				<span class="pull-left header-icon-title margin-right--little" id="user-login"><%= JSON.parse(logon).username%></span>
 				<div class="inline header-icon-image">
 					<img src="../assets/images/user-img.png"/>
 				</div>
@@ -25,7 +25,7 @@
 					<li>
 						<a href="./cart">
 							<div class="ss-cart inline"></div>
-							<div class="inline title">Your Cart</div>
+							<div class="inline title">Your Transaction</div>
 						</a>
 					</li>
 					<li>
@@ -37,7 +37,7 @@
 					<li>
 						<a href="./logout">
 							<div class="ss-power inline"></div>
-							<div class="inline title">Logout</div>
+							<div class="inline title" id="btnLogout">Logout</div>
 						</a>
 					</li>
 				</ul>
@@ -47,16 +47,23 @@
 		<% if(!logon){%>
 		<div class="comp pull-right">
 			<a class="comp-btn">
-				<span target="#login-form" class="header-icon-title btn btn-login" btn-login >Login</span>
+				<span target="#login-form" class="header-icon-title btn btn-login showLogin" btn-login control="triggerLogin()">Login</span>
 			</a>
 		</div>
 
 		<div class="comp pull-right margin-right--little">
 			<a class="comp-btn">
-				<span target="#register-form" class="header-icon-title btn btn-login" btn-login>Register</span>
+				<span target="#register-form" class="header-icon-title btn btn-login showRegister" btn-login>Register</span>
 			</a>
 		</div>
+		
 		<%}%>
+
+		<div class="comp pull-right margin-right--little">
+			<a href="/cart" class="comp-btn" id="cart-icon">
+				<span class="ss-cart"></span>
+			</a>
+		</div>
 
 	</div>
 </header>
@@ -74,7 +81,7 @@
 								<!-- <label for="username">Username</label> -->
 								<div class="input margin-bottom--little">
 									<span class="ss-email inline"></span>
-									<input type="text" placeholder="Username" ng-model="login_username" elm-focus/>
+									<input type="text" placeholder="Username" ng-model="login_username" class="login_username" elm-focus/>
 								</div>
 
 								<div class="input margin-bottom--little">
@@ -90,7 +97,7 @@
 								</div>
 
 								<div class="row margin-bottom--little">
-									<button class="btn btn-large block full-width login-btn-large" btn-do-login>Login</button>	
+									<button class="btn btn-large block full-width login-btn-large doLogin" btn-do-login>Login</button>	
 								</div>
 
 								<hr class="margin-bottom--little">
@@ -98,7 +105,7 @@
 								<div class="row push-top--little">
 									<label for="account">Do you have an account ?</label>
 									<a href="" class="comp-btn pull-right">
-										<span class="btn btn-login btn-register padding-little">Register</span>
+										<span class="btn btn-login btn-register padding-little" btn-login target="#register-form">Register</span>
 									</a>
 								</div>
 								
@@ -140,7 +147,7 @@
 
 								<div class="input margin-bottom--little">
 									<span class="ss-locked inline"></span>
-									<input type="password" placeholder="Re-type Password" ng-modal="register_repassword" elm-focus />
+									<input type="password" placeholder="Re-type Password" ng-model="register_repassword" elm-focus />
 								</div>
 							</div>
 						</div>
@@ -149,7 +156,7 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="row margin-bottom--little">
-								<button class="btn btn-large block full-width login-btn-large" btn-register>Register</button>	
+								<button class="btn btn-large block full-width login-btn-large doRegister" btn-register>Register</button>	
 							</div>
 						</div>
 					</div>

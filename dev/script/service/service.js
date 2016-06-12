@@ -9,7 +9,7 @@ app.service('service', function($http, $q){
 				data : data
 			};
 
-			return $http(login)	
+			return $http(login);
 		},
 
 		addUser: function(data){
@@ -19,11 +19,11 @@ app.service('service', function($http, $q){
 				data : data
 			};
 
-			return $http(user)	
+			return $http(user);
 		},
 
 		getProduct: function(id){
-			return $http.get('http://localhost:3000/api/product/get/'+id)
+			return $http.get('http://localhost:3000/api/product/get/'+id);
 		},
 
 		saveCart: function(product_id, user_id){
@@ -36,12 +36,28 @@ app.service('service', function($http, $q){
 				}
 			};
 
-			return $http(data)
+			return $http(data);
 		},
 
 
 		getCart: function(user_id){
 			return $http.get('http://localhost:3000/api/cart/get/'+user_id);
+		},
+
+		deleteCart: function(id){
+			return $http.delete('http://localhost:3000/api/cart/delete/'+id);
+		},
+
+		insertCart: function(cart){
+			var insert = {
+				url: 'http://localhost:3000/api/cart/insert',
+				method: 'POST',
+				data : {
+					data_cart : cart
+				}
+			};
+
+			return $http(insert);
 		}
 	}
-})
+});

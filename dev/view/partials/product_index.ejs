@@ -9,33 +9,30 @@
 </section>
 
 <section>
-	<div class="row container clear-padding__10">
+	<div class="row container clear-padding__10" ng-controller="indexController as ic">
 
-		<% for(var i = 0; i < JSON.parse(product).length; i++){ %>
-			<div class="col-4 col-md-6 col-sm-12 product-index">
-				<div class="product-index-wrapper">
-					<div class="product-index-image" style="background:url('<%= JSON.parse(product)[i].image%>')"></div>
-				
-					<section class="content">
-						<div class="product-index-title block margin-bottom--little"><%= JSON.parse(product)[i].name%></div>
-						<ul class="product-index-size block margin-bottom--little">
-							<% for(var x = 0; x < JSON.parse(product)[i].size.length; x++){%>
-								<li><%= JSON.parse(product)[i].size[x]%></li>
-							<%}%>
-							<!-- <li>S</li>
-							<li>M</li>
-							<li>L</li> -->
-						</ul>
-						<hr class="block">
-						<div class="block index-button-wrapper">
-							<span class="pull-left full-height">Rp <%= JSON.parse(product)[i].price%></span>
-							<button class="pull-right product-index-button" data-product_id=<%=JSON.parse(product)[i].cid%> btn-buy>Buy It</button>
-						</div>
-					</section>
-				</div>
-			</div>
+		<div class="col-4 col-md-6 col-sm-12 product-index" ng-repeat="product in ic.productHome">
+			<div class="product-index-wrapper">
+				<div class="product-index-image" style="background:url('{{product.image}}')"></div>
 			
-		<% }%>
+				<section class="content">
+					<div class="product-index-title block margin-bottom--little">{{product.name}}</div>
+					<ul class="product-index-size block margin-bottom--little">
+						<li ng-repeat="size in product.size">{{size}}</li>
+						<!-- <li>S</li>
+						<li>M</li>
+						<li>L</li> -->
+					</ul>
+					<hr class="block">
+					<div class="block index-button-wrapper">
+						<span class="pull-left full-height">Rp {{product.price}}</span>
+						<button class="pull-right product-index-button" id="btnBuy" data-product_id="{{product.cid}}" btn-buy ng-click="doBuy(product.cid)">Buy It</button>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		
 		<!-- <div class="col-4 product-index">
 			<div class="product-index-wrapper">
 				<div class="product-index-image" style="background:url('./assets/images/products/1.jpg')"></div>

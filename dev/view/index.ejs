@@ -4,6 +4,7 @@
 		<title>SALE STOCK</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="title" content="sale stock">
 	    <meta name="description" content="Demo project">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./assets/style/style.css">
@@ -13,8 +14,6 @@
 	<body ng-app="saleStockApp" ng-controller=<%= controller %>>
 		<div class="root-body">
 			<%- include('partials/header')%>
-		
-			
 
 			<%- include(template)%>
 			
@@ -23,6 +22,7 @@
 	</body>
 	<script src="./lib/angular.min.js"></script>
 	<script src="./lib/angular-cookies.min.js"></script>
+	<script src="./lib/underscore-min.js"></script>
 	<script src="./lib/jquery.min.js"></script>
 	<script src="./script/app.js"></script>
 	<script src="./script/service/service.js"></script>
@@ -34,7 +34,8 @@
 	
 	<script type="text/javascript"></script>
 	<script>
-		window.DEFAULT_PRODUCT = <%- product %>
+		window.DEFAULT_PRODUCT = <%- product %>;
 		// window.USER_ACCESS = <%- logon %>
 	</script>
+	
 </html>

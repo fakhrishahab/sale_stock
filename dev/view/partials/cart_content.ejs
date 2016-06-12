@@ -1,8 +1,27 @@
-<div class="container margin-header">
+<div class="container margin-header" ng-controller="cartController as cc">
 	<div class="row"><h2>Your Cart</h2></div>
-	<div class="row">
+	<div class="row" ng-cloak>
 		<div class="col-8">
-			<div class="cart-item-container">
+			<div class="cart-item-container" ng-repeat="cart in cc.cartItems"  ng-if="cc.cartItems.length >= 1">
+				<span class="ss-delete btn-delete" ng-click="cc.doDeleteCart(cart.cid)"></span>
+				<div class="cart-item-image">
+					<div class="cart-image-product" style="background:url('{{cart.image}}')"></div>
+				</div>
+
+				<div class="cart-item-content-description">
+					<h3 class="">{{cart.name}}</h3>
+					<div class="cart-item-price">
+						<span class="pull-left">1 pcs</span>	
+						<span class="pull-right item-price">Rp {{cart.price}},-</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="cart-item-footer margin-bottom--little text-center" ng-if="cc.cartItems.length < 1">
+				<span><h2>- Your cart is empty -</h2></span>
+			</div>
+
+			<!-- <div class="cart-item-container">
 				<span class="ss-delete btn-delete"></span>
 				<div class="cart-item-image">
 					<div class="cart-image-product" style="background:url('./assets/images/products/1.jpg')"></div>
@@ -30,27 +49,19 @@
 						<span class="pull-right item-price">Rp 180.000,-</span>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="cart-item-container">
-				<span class="ss-delete btn-delete"></span>
-				<div class="cart-item-image">
-					<div class="cart-image-product" style="background:url('./assets/images/products/1.jpg')"></div>
-				</div>
-
-				<div class="cart-item-content-description">
-					<h3 class="">TSHIRT</h3>
-					<div class="cart-item-price">
-						<span class="pull-left">1 pcs</span>	
-						<span class="pull-right item-price">Rp 180.000,-</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="cart-item-footer pull-left">
+			<div class="cart-item-footer pull-left margin-bottom--little">
 				<span class="pull-left"><h2>Total</h2></span>
-				<span class="pull-right"><h2>Rp 300.000,-</h2></span>
+				<span class="pull-right"><h2>Rp {{cc.totalPrice}},-</h2></span>
+			</div>
+
+			<div class="row">
+				<button class="btn pull-right login-btn-large" ng-click="cc.doCheckout()">Checkout</button>
 			</div>
 		</div>
+
+
 	</div>
+	
 </div>
