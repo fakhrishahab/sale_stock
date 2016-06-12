@@ -29,7 +29,7 @@ describe('end to end homepage test', function(){
 		element(by.id('btnLogout')).click();
 		browser.waitForAngular();
 
-		var user_login = 'farwah';
+		var user_login = 'Whatever';
 		element(by.css('.showLogin')).click();
 		element(by.model('login_username')).sendKeys(user_login);
 		element(by.model('login_password')).sendKeys('12345');
@@ -38,6 +38,7 @@ describe('end to end homepage test', function(){
 	});
 
 	it("Should add cookies when klik button BUY", function(){
+		browser.waitForAngular();
 		element(by.id('btnBuy')).click();
 		browser.manage().getCookie('SS_CART_TMP')
                 .then(function (cookie) {
